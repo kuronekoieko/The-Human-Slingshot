@@ -20,6 +20,7 @@ public class PlayerController : MonoBehaviour
     float mouseDistanceStartToEnd;
     float maxPullLength = 10f;
     PlayerState playerState;
+    Vector3 prePos;
     void Awake()
     {
 
@@ -44,13 +45,18 @@ public class PlayerController : MonoBehaviour
                 break;
             case PlayerState.Flying:
                 transform.position = animator.transform.position;
-                cameraController.FollowTarget();
+
                 break;
             default:
                 break;
         }
+        cameraController.FollowTarget();
     }
 
+    void LateUpdate()
+    {
+        prePos = transform.position;
+    }
 
     void Sling()
     {
@@ -78,10 +84,17 @@ public class PlayerController : MonoBehaviour
 
             var shootVec = (slingShotController.CenterPos - transform.position).normalized;
             ragdollController.EnableRagdoll(enabled: true);
-            ragdollController.AddForce(shootVec * 100f);
+            ragdollController.AddForce(shootVec * 500f);
             playerState = PlayerState.Flying;
             animator.transform.parent = null;
         }
 
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if (!other.CompareTag("Floor")) return;
+        Debug.Log(other.gameObject.name + " =======================");
+        ragdollController.RefrectFloor(Vector3.up);
     }
 }

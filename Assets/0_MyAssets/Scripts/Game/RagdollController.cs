@@ -7,6 +7,7 @@ public class RagdollController : MonoBehaviour
     Rigidbody[] ragdollRigidbodies;
     Collider[] ragdollColliders;
     [SerializeField] Animator animator;
+    [SerializeField] float downForce;
     public Vector3 RootRbPos => ragdollRigidbodies[0].transform.position;
 
     void Awake()
@@ -17,6 +18,14 @@ public class RagdollController : MonoBehaviour
     void Start()
     {
 
+    }
+
+    void Update()
+    {
+        foreach (var rb in ragdollRigidbodies)
+        {
+            rb.AddForce(-Vector3.up * downForce);
+        }
     }
 
     public void EnableRagdoll(bool enabled)
@@ -39,6 +48,25 @@ public class RagdollController : MonoBehaviour
         {
             rb.AddForce(force, ForceMode.Impulse);
         }
+    }
+
+    float refrectForce = 150f;
+    public void RefrectFloor(Vector3 normal)
+    {
+        Vector3 inVelocity = ragdollRigidbodies[0].velocity;
+        //Vector3 refrectVec = Vector3.Reflect(inVelocity, normal);
+        Debug.Log(inVelocity.sqrMagnitude);
+        if (inVelocity.sqrMagnitude < 10f)
+        {
+            return;
+        }
+
+        foreach (var rb in ragdollRigidbodies)
+        {
+            //rb.velocity = refrectVec * 0.5f;
+            rb.AddForce(Vector3.up * refrectForce, ForceMode.Impulse);
+        }
+        refrectForce *= 0.6f;
     }
 
 
