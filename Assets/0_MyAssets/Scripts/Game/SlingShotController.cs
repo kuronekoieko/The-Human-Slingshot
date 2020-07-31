@@ -10,6 +10,8 @@ public class SlingShotController : MonoBehaviour
     [SerializeField] SkinnedMeshRenderer leatherLine;
     [SerializeField] LineRenderer rightElasticLine;
     [SerializeField] LineRenderer leftElasticLine;
+    [SerializeField] Transform centerTf;
+    public Vector3 CenterPos => centerTf.transform.position;
 
     void Start()
     {
