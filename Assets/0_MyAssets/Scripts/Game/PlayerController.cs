@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] SlingShotController slingShotController;
     [SerializeField] Animator animator;
     [SerializeField] RagdollController ragdollController;
+    [SerializeField] CameraController cameraController;
     Vector3 startMousePos;
     Vector3 startPlayerPos;
     Vector3 endPlayerPos;
@@ -30,6 +31,7 @@ public class PlayerController : MonoBehaviour
         endPlayerPos = startPlayerPos - Vector3.forward * 6f;
         ragdollController.EnableRagdoll(enabled: false);
         playerState = PlayerState.Sling;
+        cameraController.SetTarget(transform);
     }
 
 
@@ -42,6 +44,7 @@ public class PlayerController : MonoBehaviour
                 break;
             case PlayerState.Flying:
                 transform.position = animator.transform.position;
+                cameraController.FollowTarget();
                 break;
             default:
                 break;

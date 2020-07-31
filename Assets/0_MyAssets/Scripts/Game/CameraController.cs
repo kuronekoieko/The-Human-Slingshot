@@ -9,14 +9,22 @@ using DG.Tweening;
 /// </summary>
 public class CameraController : MonoBehaviour
 {
-    public static CameraController i;
+
+    public Transform target;
+    Vector3 offset;
     void Start()
     {
-        if (i == null) i = this;
+
     }
 
-    void Update()
+    public void SetTarget(Transform target)
     {
+        this.target = target;
+        offset = transform.position - target.position;
+    }
 
+    public void FollowTarget()
+    {
+        transform.position = target.position + offset;
     }
 }
