@@ -13,6 +13,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] Animator animator;
     [SerializeField] RagdollController ragdollController;
     [SerializeField] CameraController cameraController;
+    [SerializeField] GliderController gliderController;
     Vector3 startMousePos;
     Vector3 startPlayerPos;
     Vector3 endPlayerPos;
@@ -45,7 +46,7 @@ public class PlayerController : MonoBehaviour
                 break;
             case PlayerState.Flying:
                 transform.position = animator.transform.position;
-
+                gliderController.Glide();
                 break;
             default:
                 break;
