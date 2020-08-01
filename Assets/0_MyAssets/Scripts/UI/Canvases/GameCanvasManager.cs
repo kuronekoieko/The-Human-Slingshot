@@ -20,8 +20,8 @@ public class GameCanvasManager : BaseCanvasManager
 
         base.SetScreenAction(thisScreen: ScreenState.Game);
 
-        this.ObserveEveryValueChanged(currentStageIndex => Variables.currentStageIndex)
-            .Subscribe(currentStageIndex => { ShowStageNumText(); })
+        this.ObserveEveryValueChanged(distance => Variables.distance)
+            .Subscribe(distance => { ShowDistance(distance); })
             .AddTo(this.gameObject);
 
         gameObject.SetActive(true);
@@ -44,8 +44,8 @@ public class GameCanvasManager : BaseCanvasManager
         // gameObject.SetActive(false);
     }
 
-    void ShowStageNumText()
+    void ShowDistance(float distance)
     {
-        stageNumText.text = "Stage " + (Variables.currentStageIndex + 1).ToString("000");
+        stageNumText.text = distance.ToString("000") + "m";
     }
 }

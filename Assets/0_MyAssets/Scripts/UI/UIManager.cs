@@ -24,7 +24,7 @@ public class UIManager : MonoBehaviour
     void Awake()
     {
         QualitySettings.vSyncCount = 0;
-        Application.targetFrameRate = 30;
+        Application.targetFrameRate = 60;
 
         if (gameDirector == null)
         {
@@ -44,7 +44,7 @@ public class UIManager : MonoBehaviour
         }
 
         SceneManager.sceneLoaded += SceneLoaded;
-        SceneManager.LoadScene("GameScene");
+        SceneManager.LoadScene(1);
     }
 
     void Update()

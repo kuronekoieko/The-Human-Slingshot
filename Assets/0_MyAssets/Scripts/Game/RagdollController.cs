@@ -10,6 +10,7 @@ public class RagdollController : MonoBehaviour
     [SerializeField] float downForce;
     [SerializeField] Rigidbody handRRb;
     [SerializeField] Rigidbody handLRb;
+    [SerializeField] PlayerController playerController;
 
     public Rigidbody RootRb => ragdollRigidbodies[0];
 
@@ -61,6 +62,7 @@ public class RagdollController : MonoBehaviour
         Debug.Log(inVelocity.sqrMagnitude);
         if (inVelocity.sqrMagnitude < 10f)
         {
+            playerController.Result();
             return;
         }
 

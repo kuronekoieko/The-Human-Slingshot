@@ -52,6 +52,8 @@ public class PlayerController : MonoBehaviour
                 break;
         }
         cameraController.FollowTarget();
+        var distance = transform.position.z - slingShotController.CenterPos.z;
+        Variables.distance = distance < 0 ? 0 : distance;
     }
 
     void LateUpdate()
@@ -91,6 +93,7 @@ public class PlayerController : MonoBehaviour
             animator.transform.parent = null;
         }
 
+
     }
 
     void OnTriggerEnter(Collider other)
@@ -98,5 +101,10 @@ public class PlayerController : MonoBehaviour
         if (!other.CompareTag("Floor")) return;
         Debug.Log(other.gameObject.name + " =======================");
         ragdollController.RefrectFloor(Vector3.up);
+    }
+
+    public void Result()
+    {
+
     }
 }
