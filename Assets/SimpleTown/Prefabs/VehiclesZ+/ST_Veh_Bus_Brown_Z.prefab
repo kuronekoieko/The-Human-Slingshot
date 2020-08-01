@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 492420}
   - component: {fileID: 3339276}
   - component: {fileID: 2338766}
+  - component: {fileID: 8399816504573890275}
   m_Layer: 0
   m_Name: ST_Veh_Bus_Brown_Z
   m_TagString: Untagged
@@ -83,6 +84,20 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!64 &8399816504573890275
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 114894}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: 5d52ccaf2280f1f49b44f4fb4a3e62fe, type: 3}
 --- !u!1 &121778
 GameObject:
   m_ObjectHideFlags: 0

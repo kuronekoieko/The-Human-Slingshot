@@ -406,6 +406,7 @@ GameObject:
   - component: {fileID: 412056}
   - component: {fileID: 3383056}
   - component: {fileID: 2350778}
+  - component: {fileID: 2491054250157866195}
   m_Layer: 0
   m_Name: ST_Veh_Rubbish_Truck_Z
   m_TagString: Untagged
@@ -480,6 +481,20 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!64 &2491054250157866195
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 181800}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: ddcd9135432c24b4eaf33f82db057e56, type: 3}
 --- !u!1 &185348
 GameObject:
   m_ObjectHideFlags: 0

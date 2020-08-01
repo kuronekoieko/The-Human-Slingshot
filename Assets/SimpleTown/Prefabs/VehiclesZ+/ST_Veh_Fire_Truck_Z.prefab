@@ -90,6 +90,7 @@ GameObject:
   - component: {fileID: 471080}
   - component: {fileID: 3348330}
   - component: {fileID: 2309068}
+  - component: {fileID: 305998847670957565}
   m_Layer: 0
   m_Name: ST_Veh_Fire_Truck_Z
   m_TagString: Untagged
@@ -162,6 +163,20 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!64 &305998847670957565
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 171608}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: 2c45e63b358971047b23c687af5e55a2, type: 3}
 --- !u!1 &178642
 GameObject:
   m_ObjectHideFlags: 0

@@ -90,6 +90,7 @@ GameObject:
   - component: {fileID: 417704}
   - component: {fileID: 3340120}
   - component: {fileID: 2390656}
+  - component: {fileID: -7693292119359022523}
   m_Layer: 0
   m_Name: ST_Veh_Van_Green_Z
   m_TagString: Untagged
@@ -162,6 +163,20 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!64 &-7693292119359022523
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 118600}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: 576da546347c040428bb0204a37e73d3, type: 3}
 --- !u!1 &152928
 GameObject:
   m_ObjectHideFlags: 0

@@ -248,6 +248,7 @@ GameObject:
   - component: {fileID: 462730}
   - component: {fileID: 3356878}
   - component: {fileID: 2345752}
+  - component: {fileID: 75743320401682614}
   m_Layer: 0
   m_Name: ST_Veh_Ute_Red_Empty_Z
   m_TagString: Untagged
@@ -320,6 +321,20 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!64 &75743320401682614
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 191414}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: adb99f9605663f0429cac7c5128a8ae1, type: 3}
 --- !u!1 &193364
 GameObject:
   m_ObjectHideFlags: 0

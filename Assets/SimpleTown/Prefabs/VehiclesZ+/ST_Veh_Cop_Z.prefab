@@ -90,6 +90,7 @@ GameObject:
   - component: {fileID: 431694}
   - component: {fileID: 3396542}
   - component: {fileID: 2337332}
+  - component: {fileID: 7298657879174865927}
   m_Layer: 0
   m_Name: ST_Veh_Cop_Z
   m_TagString: Untagged
@@ -162,6 +163,20 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!64 &7298657879174865927
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 150866}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: 9a4b4bd6978221c41ab67a38e71658af, type: 3}
 --- !u!1 &169456
 GameObject:
   m_ObjectHideFlags: 0

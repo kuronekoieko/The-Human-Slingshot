@@ -90,6 +90,7 @@ GameObject:
   - component: {fileID: 481914}
   - component: {fileID: 3354112}
   - component: {fileID: 2330618}
+  - component: {fileID: 7812265122743935418}
   m_Layer: 0
   m_Name: ST_Veh_Ute_Blue_Z
   m_TagString: Untagged
@@ -162,6 +163,20 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!64 &7812265122743935418
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 137560}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: 61217936b61bf9642be5d9f117804bfe, type: 3}
 --- !u!1 &143850
 GameObject:
   m_ObjectHideFlags: 0
