@@ -84,7 +84,6 @@ public class RagdollController : MonoBehaviour
     public bool IsStop()
     {
         float velocityAverage = ragdollRigidbodies.Average(r => r.velocity.magnitude);
-        Debug.Log(velocityAverage);
         return velocityAverage < 0.5f;
     }
 }

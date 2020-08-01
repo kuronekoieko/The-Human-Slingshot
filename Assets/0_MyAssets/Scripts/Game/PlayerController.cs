@@ -37,7 +37,7 @@ public class PlayerController : MonoBehaviour
         playerState = PlayerState.Sling;
         cameraController.SetTarget(transform);
         ChangeTag(transform);
-
+        Variables.distance = 0;
     }
 
     void ChangeTag(Transform transform)
@@ -61,6 +61,8 @@ public class PlayerController : MonoBehaviour
                 transform.position = animator.transform.position;
                 gliderController.Glide();
                 LandCheck();
+                var distance = transform.position.z - slingShotController.CenterPos.z;
+                Variables.distance = distance < 0 ? 0 : distance;
                 break;
             case PlayerState.Landing:
                 break;
@@ -68,8 +70,7 @@ public class PlayerController : MonoBehaviour
                 break;
         }
         cameraController.FollowTarget();
-        var distance = transform.position.z - slingShotController.CenterPos.z;
-        Variables.distance = distance < 0 ? 0 : distance;
+
     }
 
     void LateUpdate()

@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class ResultCanvasManager : BaseCanvasManager
 {
     [SerializeField] Button retryButton;
+    [SerializeField] Text distanceText;
     public override void OnStart()
     {
         base.SetScreenAction(thisScreen: ScreenState.Result);
@@ -22,6 +23,7 @@ public class ResultCanvasManager : BaseCanvasManager
     protected override void OnOpen()
     {
         gameObject.SetActive(true);
+        distanceText.text = Variables.distance.ToString("000") + "m";
     }
 
     protected override void OnClose()
