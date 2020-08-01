@@ -9,22 +9,29 @@ using DG.Tweening;
 /// </summary>
 public class CameraController : MonoBehaviour
 {
-
-    public Transform target;
-    Vector3 offset;
+    [SerializeField] Transform cameraOriginTf;
+    [SerializeField] Transform camera1Tf;
+    [SerializeField] Transform camera2Tf;
     void Start()
     {
 
     }
 
-    public void SetTarget(Transform target)
+    public void ShotMove()
     {
-        this.target = target;
-        offset = transform.position - target.position;
-    }
+        float distance = cameraOriginTf.localPosition.magnitude;
 
-    public void FollowTarget()
-    {
-        transform.position = target.position + offset;
+        Sequence sequence = DOTween.Sequence()
+        .Append(transform.DOLocalMove(camera1Tf.localPosition, 1f).SetEase(Ease.Linear))
+        .Join(transform.DOLocalRotate(camera1Tf.eulerAngles, 2f).SetEase(Ease.Linear))
+        .Append(transform.DOLocalMove(cameraOriginTf.localPosition, 2f).SetEase(Ease.Linear))
+        .Join(transform.DOLocalRotate(cameraOriginTf.eulerAngles, 2f).SetEase(Ease.Linear))
+        .Append(transform.DOLocalMove(camera2Tf.localPosition, 2f).SetEase(Ease.Linear))
+        .Join(transform.DOLocalRotate(camera2Tf.eulerAngles, 2f).SetEase(Ease.Linear))
+        .Append(transform.DOLocalMove(cameraOriginTf.localPosition, 1f).SetEase(Ease.Linear))
+        .Join(transform.DOLocalRotate(cameraOriginTf.eulerAngles, 1f).SetEase(Ease.Linear));
+
+
+
     }
 }

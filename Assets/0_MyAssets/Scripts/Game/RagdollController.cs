@@ -13,7 +13,7 @@ public class RagdollController : MonoBehaviour
     [SerializeField] PlayerController playerController;
 
     public Rigidbody RootRb => ragdollRigidbodies[0];
-
+    float refrectForce = 100;
     void Awake()
     {
         ragdollRigidbodies = animator.GetComponentsInChildren<Rigidbody>();
@@ -54,7 +54,7 @@ public class RagdollController : MonoBehaviour
         }
     }
 
-    float refrectForce = 150f;
+
     public void RefrectFloor(Vector3 normal)
     {
         Vector3 inVelocity = ragdollRigidbodies[0].velocity;

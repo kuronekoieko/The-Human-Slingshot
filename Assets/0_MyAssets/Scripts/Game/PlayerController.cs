@@ -35,7 +35,7 @@ public class PlayerController : MonoBehaviour
         endPlayerPos = startPlayerPos - Vector3.forward * 6f;
         ragdollController.EnableRagdoll(enabled: false);
         playerState = PlayerState.Sling;
-        cameraController.SetTarget(transform);
+
         ChangeTag(transform);
         Variables.distance = 0;
     }
@@ -69,8 +69,6 @@ public class PlayerController : MonoBehaviour
             default:
                 break;
         }
-        cameraController.FollowTarget();
-
     }
 
     void LateUpdate()
@@ -108,6 +106,7 @@ public class PlayerController : MonoBehaviour
             ragdollController.AddForce(shootVec * 500f);
             playerState = PlayerState.Flying;
             animator.transform.parent = null;
+            //cameraController.ShotMove();
         }
 
 
