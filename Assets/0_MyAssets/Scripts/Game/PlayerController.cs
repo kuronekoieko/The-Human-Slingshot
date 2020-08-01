@@ -66,6 +66,7 @@ public class PlayerController : MonoBehaviour
             startMousePos = Input.mousePosition;
             Vector3 endMousePos = startMousePos - Vector3.up * 400f;
             mouseDistanceStartToEnd = Vector3.Distance(startMousePos, endMousePos);
+            animator.SetTrigger("BackWards");
         }
 
         if (Input.GetMouseButton(0))
