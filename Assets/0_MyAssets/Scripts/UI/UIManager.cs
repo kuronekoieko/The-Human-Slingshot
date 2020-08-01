@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-
+using GameAnalyticsSDK;
 /// <summary>
 /// 画面UIの一括管理
 /// GameDirectorと各画面を中継する役割
@@ -45,6 +45,7 @@ public class UIManager : MonoBehaviour
 
         SceneManager.sceneLoaded += SceneLoaded;
         SceneManager.LoadScene(1);
+        GameAnalytics.Initialize();
     }
 
     void Update()
