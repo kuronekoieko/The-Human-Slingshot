@@ -47,7 +47,7 @@ public class GameCanvasManager : BaseCanvasManager
 
     protected override void OnClose()
     {
-        // gameObject.SetActive(false);
+        gameObject.SetActive(false);
     }
 
     public override void OnInitialize()

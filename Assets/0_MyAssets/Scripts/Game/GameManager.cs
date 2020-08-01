@@ -8,11 +8,4 @@ using System.Linq;
 /// </summary>
 public class GameManager : MonoBehaviour
 {
-    GameObject[] stages;
-    void Start()
-    {
-        stages = Resources.LoadAll("Stages", typeof(GameObject)).Cast<GameObject>().ToArray();
-        Variables.lastStageIndex = stages.Length - 1;
-        Instantiate(stages[Variables.currentStageIndex], Vector3.zero, Quaternion.identity);
-    }
 }

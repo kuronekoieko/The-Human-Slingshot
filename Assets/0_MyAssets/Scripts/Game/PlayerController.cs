@@ -25,6 +25,7 @@ public class PlayerController : MonoBehaviour
     PlayerState playerState;
     Vector3 prePos;
     float landingTimer;
+    float proportion;
     void Awake()
     {
 
@@ -79,6 +80,7 @@ public class PlayerController : MonoBehaviour
 
     void Sling()
     {
+
         if (Input.GetMouseButtonDown(0))
         {
             startMousePos = Input.mousePosition;
@@ -89,14 +91,14 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetMouseButton(0))
         {
-
             float mouseDistance = Vector3.Distance(startMousePos, Input.mousePosition);
             if (startMousePos.y < Input.mousePosition.y) { mouseDistance = 0; }
-            float proportion = mouseDistance / mouseDistanceStartToEnd;
-
+            proportion = mouseDistance / mouseDistanceStartToEnd;
             transform.position = Vector3.Lerp(startPlayerPos, endPlayerPos, proportion);
             slingShotController.SetPosition(transform.position);
         }
+
+        if (proportion < 0.1f) return;
 
         if (Input.GetMouseButtonUp(0))
         {
