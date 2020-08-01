@@ -6,6 +6,8 @@ public class GliderController : MonoBehaviour
 {
     [SerializeField] Transform gliderTf;
     [SerializeField] RagdollController ragdollController;
+    [SerializeField] Transform handleR;
+    [SerializeField] Transform handleL;
     float radius = 100f;
     Vector3 center;
 
@@ -29,6 +31,7 @@ public class GliderController : MonoBehaviour
             Vector3 vectorFromCenter = transform.position - center;
             Vector3 flyVec = Vector3.Cross(vectorFromCenter, Vector3.right);
             ragdollController.SetVelocity(flyVec.normalized * ragdollController.RootRb.velocity.magnitude);
+            ragdollController.SetGliderHandle(handleR, handleL);
         }
         if (Input.GetMouseButtonUp(0))
         {

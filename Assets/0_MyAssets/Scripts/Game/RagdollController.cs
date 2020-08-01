@@ -8,6 +8,9 @@ public class RagdollController : MonoBehaviour
     Collider[] ragdollColliders;
     [SerializeField] Animator animator;
     [SerializeField] float downForce;
+    [SerializeField] Rigidbody handRRb;
+    [SerializeField] Rigidbody handLRb;
+
     public Rigidbody RootRb => ragdollRigidbodies[0];
 
     void Awake()
@@ -75,5 +78,11 @@ public class RagdollController : MonoBehaviour
         {
             rb.velocity = vel;
         }
+    }
+
+    public void SetGliderHandle(Transform handleR, Transform handleL)
+    {
+        handRRb.transform.position = handleR.position;
+        handLRb.transform.position = handleL.position;
     }
 }
