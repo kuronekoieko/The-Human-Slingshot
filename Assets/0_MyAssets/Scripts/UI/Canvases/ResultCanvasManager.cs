@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+using DG.Tweening;
 public class ResultCanvasManager : BaseCanvasManager
 {
     [SerializeField] Button retryButton;
@@ -22,8 +22,12 @@ public class ResultCanvasManager : BaseCanvasManager
 
     protected override void OnOpen()
     {
-        gameObject.SetActive(true);
-        distanceText.text = Variables.distance.ToString("000") + "m";
+        DOVirtual.DelayedCall(2, () =>
+        {
+            gameObject.SetActive(true);
+            distanceText.text = Variables.distance.ToString("000") + "m";
+        });
+
     }
 
     protected override void OnClose()

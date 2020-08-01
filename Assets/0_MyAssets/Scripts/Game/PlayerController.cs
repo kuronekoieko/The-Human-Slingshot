@@ -15,6 +15,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] RagdollController ragdollController;
     [SerializeField] CameraController cameraController;
     [SerializeField] GliderController gliderController;
+    [SerializeField] FlagController flagController;
     Vector3 startMousePos;
     Vector3 startPlayerPos;
     Vector3 endPlayerPos;
@@ -131,7 +132,7 @@ public class PlayerController : MonoBehaviour
         if (landingTimer < 1f) return;
 
         playerState = PlayerState.Landing;
-
+        flagController.Show(transform.position);
         if (Variables.screenState != ScreenState.Game) return;
         Variables.screenState = ScreenState.Result;
     }
