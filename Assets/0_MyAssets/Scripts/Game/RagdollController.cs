@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using System.Linq;
 public class RagdollController : MonoBehaviour
 {
     Rigidbody[] ragdollRigidbodies;
@@ -58,20 +58,12 @@ public class RagdollController : MonoBehaviour
     public void RefrectFloor(Vector3 normal)
     {
         Vector3 inVelocity = ragdollRigidbodies[0].velocity;
-        //Vector3 refrectVec = Vector3.Reflect(inVelocity, normal);
-        Debug.Log(inVelocity.sqrMagnitude);
-        if (inVelocity.sqrMagnitude < 10f)
-        {
-            playerController.Result();
-            return;
-        }
-
         foreach (var rb in ragdollRigidbodies)
         {
-            //rb.velocity = refrectVec * 0.5f;
             rb.AddForce(Vector3.up * refrectForce, ForceMode.Impulse);
         }
         refrectForce *= 0.5f;
+
     }
 
     public void SetVelocity(Vector3 vel)
@@ -86,5 +78,13 @@ public class RagdollController : MonoBehaviour
     {
         handRRb.transform.position = handleR.position;
         handLRb.transform.position = handleL.position;
+    }
+
+
+    public bool IsStop()
+    {
+        float velocityAverage = ragdollRigidbodies.Average(r => r.velocity.magnitude);
+        Debug.Log(velocityAverage);
+        return velocityAverage < 0.5f;
     }
 }

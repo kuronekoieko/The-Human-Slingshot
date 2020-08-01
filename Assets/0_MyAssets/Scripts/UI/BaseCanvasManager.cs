@@ -13,6 +13,7 @@ public enum ScreenState
     Failed,
     Home,
     Debug,
+    Result,
 }
 
 /// <summary>
@@ -76,13 +77,13 @@ public class BaseCanvasManager : MonoBehaviour
     {
         if (!IsThisScreen()) { return; }
         Variables.currentStageIndex++;
-        SceneManager.LoadScene("GameScene");
+        SceneManager.LoadScene(1);
     }
 
     protected void ReLoadScene()
     {
         if (!IsThisScreen()) { return; }
-        SceneManager.LoadScene("GameScene");
+        SceneManager.LoadScene(1);
     }
 
     protected bool IsThisScreen()

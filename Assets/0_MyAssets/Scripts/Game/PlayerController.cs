@@ -6,6 +6,7 @@ public enum PlayerState
 {
     Sling,
     Flying,
+    Landing,
 }
 public class PlayerController : MonoBehaviour
 {
@@ -22,6 +23,7 @@ public class PlayerController : MonoBehaviour
     float maxPullLength = 10f;
     PlayerState playerState;
     Vector3 prePos;
+    float landingTimer;
     void Awake()
     {
 
@@ -34,6 +36,17 @@ public class PlayerController : MonoBehaviour
         ragdollController.EnableRagdoll(enabled: false);
         playerState = PlayerState.Sling;
         cameraController.SetTarget(transform);
+        ChangeTag(transform);
+
+    }
+
+    void ChangeTag(Transform transform)
+    {
+        foreach (Transform child in transform)
+        {
+            child.tag = "Player";
+            ChangeTag(child);
+        }
     }
 
 
@@ -47,6 +60,9 @@ public class PlayerController : MonoBehaviour
             case PlayerState.Flying:
                 transform.position = animator.transform.position;
                 gliderController.Glide();
+                LandCheck();
+                break;
+            case PlayerState.Landing:
                 break;
             default:
                 break;
@@ -99,12 +115,24 @@ public class PlayerController : MonoBehaviour
     void OnTriggerEnter(Collider other)
     {
         if (!other.CompareTag("Floor")) return;
-        Debug.Log(other.gameObject.name + " =======================");
+        if (playerState != PlayerState.Flying) return;
         ragdollController.RefrectFloor(Vector3.up);
     }
 
-    public void Result()
+    public void LandCheck()
     {
+        if (!ragdollController.IsStop())
+        {
+            landingTimer = 0;
+            return;
+        }
 
+        landingTimer += Time.deltaTime;
+        if (landingTimer < 1f) return;
+
+        playerState = PlayerState.Landing;
+
+        if (Variables.screenState != ScreenState.Game) return;
+        Variables.screenState = ScreenState.Result;
     }
 }
