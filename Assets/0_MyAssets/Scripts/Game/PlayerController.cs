@@ -40,7 +40,7 @@ public class PlayerController : MonoBehaviour
 
         ChangeTag(transform);
         Variables.distance = 0;
-        Variables.shootForce = 400;
+        Variables.shootForce = 350;
     }
 
     void ChangeTag(Transform transform)
@@ -121,6 +121,7 @@ public class PlayerController : MonoBehaviour
     void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player")) return;
+        if (other.CompareTag("Obstacle")) return;
         if (playerState != PlayerState.Flying) return;
         ragdollController.RefrectFloor(Vector3.up);
     }
