@@ -30,15 +30,15 @@ public class CameraController : MonoBehaviour
         switch (rotateStateOnFly)
         {
             case RotateStateOnFly.ToLeft:
-                transform.RotateAround(targetPos, Vector3.up, Time.deltaTime * 50f);
-                if (angle > 40f) rotateStateOnFly = RotateStateOnFly.ToRight;
+                transform.RotateAround(targetPos, Vector3.up, Time.deltaTime * 40f);
+                if (angle > 30f) rotateStateOnFly = RotateStateOnFly.ToRight;
                 break;
             case RotateStateOnFly.ToRight:
                 transform.RotateAround(targetPos, Vector3.up, -Time.deltaTime * 25f);
-                if (angle < -40f) rotateStateOnFly = RotateStateOnFly.ToCenter;
+                if (angle < -30f) rotateStateOnFly = RotateStateOnFly.ToCenter;
                 break;
             case RotateStateOnFly.ToCenter:
-                float diff = Time.deltaTime * 50f;
+                float diff = Time.deltaTime * 40f;
                 if (angle + diff > 0f)
                 {
                     transform.localPosition = startLocalPos;
@@ -58,7 +58,7 @@ public class CameraController : MonoBehaviour
 
     public void RotateOnLanding(Vector3 targetPos)
     {
-        transform.RotateAround(targetPos, Vector3.up, -Time.deltaTime * 4f);
+        transform.RotateAround(targetPos, Vector3.up, -Time.deltaTime * 5f);
     }
 
 }
