@@ -56,9 +56,10 @@ public class RagdollController : MonoBehaviour
     public void RefrectFloor(Vector3 normal)
     {
         Vector3 inVelocity = ragdollRigidbodies[0].velocity;
+        float boundForce = Mathf.Abs(inVelocity.y) * 3f;
         foreach (var rb in ragdollRigidbodies)
         {
-            rb.AddForce(Vector3.up * inVelocity.magnitude * 3f, ForceMode.Impulse);
+            rb.AddForce(Vector3.up * boundForce, ForceMode.Impulse);
         }
     }
 
