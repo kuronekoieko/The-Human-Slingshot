@@ -119,7 +119,7 @@ public class PlayerController : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (!other.CompareTag("Floor")) return;
+        if (other.CompareTag("Player")) return;
         if (playerState != PlayerState.Flying) return;
         ragdollController.RefrectFloor(Vector3.up);
     }

@@ -28,7 +28,7 @@ public class GliderController : MonoBehaviour
         {
             Vector3 vectorFromCenter = transform.position - center;
             Vector3 flyVec = Vector3.Cross(vectorFromCenter, Vector3.right);
-            ragdollController.SetVelocity(flyVec.normalized * ragdollController.RootRb.velocity.magnitude);
+            ragdollController.SetVelocity(flyVec.normalized * Vector3.Distance(ragdollController.RootRb.velocity, Vector3.zero));
             ragdollController.SetGliderHandle(handleR, handleL);
         }
         if (Input.GetMouseButtonUp(0))
