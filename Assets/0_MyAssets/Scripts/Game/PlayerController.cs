@@ -65,9 +65,10 @@ public class PlayerController : MonoBehaviour
                 LandCheck();
                 var distance = transform.position.z - slingShotController.CenterPos.z;
                 Variables.distance = distance < 0 ? 0 : distance;
+                cameraController.RotateOnFly(transform.position);
                 break;
             case PlayerState.Landing:
-                cameraController.RotateAround(transform.position);
+                cameraController.RotateOnLanding(transform.position);
                 break;
             default:
                 break;

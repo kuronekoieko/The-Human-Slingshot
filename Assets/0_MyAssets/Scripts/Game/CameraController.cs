@@ -12,32 +12,61 @@ public class CameraController : MonoBehaviour
     [SerializeField] Transform cameraOriginTf;
     [SerializeField] Transform camera1Tf;
     [SerializeField] Transform camera2Tf;
+    RotateStateOnFly rotateStateOnFly;
+    Vector3 startLocalPos;
+    Quaternion startLocalRotation;
     void Start()
     {
-
+        rotateStateOnFly = RotateStateOnFly.ToLeft;
+        startLocalPos = transform.localPosition;
+        startLocalRotation = transform.localRotation;
     }
 
-    public void ShotMove()
+    public void RotateOnFly(Vector3 targetPos)
     {
-        float distance = cameraOriginTf.localPosition.magnitude;
-
-        Sequence sequence = DOTween.Sequence()
-        .Append(transform.DOLocalMove(camera1Tf.localPosition, 1f).SetEase(Ease.Linear))
-        .Join(transform.DOLocalRotate(camera1Tf.eulerAngles, 2f).SetEase(Ease.Linear))
-        .Append(transform.DOLocalMove(cameraOriginTf.localPosition, 2f).SetEase(Ease.Linear))
-        .Join(transform.DOLocalRotate(cameraOriginTf.eulerAngles, 2f).SetEase(Ease.Linear))
-        .Append(transform.DOLocalMove(camera2Tf.localPosition, 2f).SetEase(Ease.Linear))
-        .Join(transform.DOLocalRotate(camera2Tf.eulerAngles, 2f).SetEase(Ease.Linear))
-        .Append(transform.DOLocalMove(cameraOriginTf.localPosition, 1f).SetEase(Ease.Linear))
-        .Join(transform.DOLocalRotate(cameraOriginTf.eulerAngles, 1f).SetEase(Ease.Linear));
-
-
+        var vec = transform.localPosition;
+        vec.y = 0;
+        float angle = Vector3.SignedAngle(-Vector3.forward, vec, Vector3.up);
+        switch (rotateStateOnFly)
+        {
+            case RotateStateOnFly.ToLeft:
+                transform.RotateAround(targetPos, Vector3.up, Time.deltaTime * 50f);
+                if (angle > 40f) rotateStateOnFly = RotateStateOnFly.ToRight;
+                break;
+            case RotateStateOnFly.ToRight:
+                transform.RotateAround(targetPos, Vector3.up, -Time.deltaTime * 25f);
+                if (angle < -40f) rotateStateOnFly = RotateStateOnFly.ToCenter;
+                break;
+            case RotateStateOnFly.ToCenter:
+                float diff = Time.deltaTime * 50f;
+                if (angle + diff > 0f)
+                {
+                    transform.localPosition = startLocalPos;
+                    transform.localRotation = startLocalRotation;
+                    rotateStateOnFly = RotateStateOnFly.End;
+                    break;
+                }
+                transform.RotateAround(targetPos, Vector3.up, diff);
+                break;
+            case RotateStateOnFly.End:
+                break;
+            default:
+                break;
+        }
 
     }
 
-    public void RotateAround(Vector3 targetPos)
+    public void RotateOnLanding(Vector3 targetPos)
     {
-        transform.RotateAround(targetPos, Vector3.up, Time.deltaTime * 4f);
+        transform.RotateAround(targetPos, Vector3.up, -Time.deltaTime * 4f);
     }
 
+}
+
+public enum RotateStateOnFly
+{
+    ToLeft,
+    ToRight,
+    ToCenter,
+    End,
 }
