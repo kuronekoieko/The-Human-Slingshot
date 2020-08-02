@@ -40,6 +40,7 @@ public class PlayerController : MonoBehaviour
 
         ChangeTag(transform);
         Variables.distance = 0;
+        Variables.shootForce = 400;
     }
 
     void ChangeTag(Transform transform)
@@ -108,7 +109,7 @@ public class PlayerController : MonoBehaviour
 
             var shootVec = (slingShotController.CenterPos - transform.position).normalized;
             ragdollController.EnableRagdoll(enabled: true);
-            ragdollController.AddForce(shootVec * 500f);
+            ragdollController.AddForce(shootVec * Variables.shootForce);
             playerState = PlayerState.Flying;
             animator.transform.parent = null;
             //cameraController.ShotMove();

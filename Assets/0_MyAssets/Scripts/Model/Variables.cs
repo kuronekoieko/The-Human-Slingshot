@@ -19,4 +19,5 @@ public class Variables : MonoBehaviour
     private static int _currentstageIndex;
     public static int lastStageIndex;
     public static float distance;
+    public static float shootForce;
 }
