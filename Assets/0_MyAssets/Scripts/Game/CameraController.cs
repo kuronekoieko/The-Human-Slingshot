@@ -34,4 +34,10 @@ public class CameraController : MonoBehaviour
 
 
     }
+
+    public void RotateAround(Vector3 targetPos)
+    {
+        transform.RotateAround(targetPos, Vector3.up, Time.deltaTime * 4f);
+    }
+
 }

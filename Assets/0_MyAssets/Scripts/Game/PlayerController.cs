@@ -67,6 +67,7 @@ public class PlayerController : MonoBehaviour
                 Variables.distance = distance < 0 ? 0 : distance;
                 break;
             case PlayerState.Landing:
+                cameraController.RotateAround(transform.position);
                 break;
             default:
                 break;

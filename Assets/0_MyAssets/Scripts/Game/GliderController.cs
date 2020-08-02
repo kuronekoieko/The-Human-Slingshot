@@ -18,8 +18,6 @@ public class GliderController : MonoBehaviour
 
     public void Glide()
     {
-
-
         if (Input.GetMouseButtonDown(0))
         {
             gliderTf.gameObject.SetActive(true);
@@ -37,9 +35,5 @@ public class GliderController : MonoBehaviour
         {
             gliderTf.gameObject.SetActive(false);
         }
-
     }
-
-
-
 }
