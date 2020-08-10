@@ -26,9 +26,9 @@ MonoBehaviour:
   UserMessagesFailed: 0
   CustomArea: 
   gameKey:
-  - bd1da900469464e4736cc339640039e1
+  - 0c099b5147996f8c711cb1247838ffb8
   secretKey:
-  - bb2bab1a40642f05675ff6736b5e7369519b780e
+  - 0e1afd0b4242dc946e1b9b2f7afed86dd637deb8
   Build:
   - 0.1
   SelectedPlatformOrganization:
@@ -36,11 +36,11 @@ MonoBehaviour:
   SelectedPlatformStudio:
   - tomonari ieko
   SelectedPlatformGame:
-  - The Human Slingshot
-  SelectedPlatformGameID: 84ad0100
+  - The Human Slingshot - IOS
+  SelectedPlatformGameID: 85b00100
   SelectedOrganization: 01000000
   SelectedStudio: 01000000
-  SelectedGame: 01000000
+  SelectedGame: 02000000
   NewVersion: 
   Changes: 
   SignUpOpen: 0
