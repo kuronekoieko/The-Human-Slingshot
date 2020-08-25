@@ -1,0 +1,4 @@
+configuration('Debug')
+include_symbols(false)
+include_bitcode(false)
+xcargs(" GCC_GENERATE_DEBUGGING_SYMBOLS=NO DEBUG_INFORMATION_FORMAT=dwarf ONLY_ACTIVE_ARCH=YES VALID_ARCHS=arm64 GCC_OPTIMIZATION_LEVEL=0")
